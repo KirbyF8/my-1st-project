@@ -2,53 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using Unity.VisualScripting;
 using UnityEngine;
-
-/*1,2,3 
-1. Comprueba si un número dado es positivo
-2. Comprueba si un número dado es negativo
-3. Combina los ejercicios 1 y 2 para dado un número, determinar si es positivo, es negativo o es 0
- */
-
-
-/*4 
-Dada una nota de un examen, determina si se trata de un Suspenso, Aprobado, Notable o
-Excelente. Considera Suspenso una nota menor a 5; Aprobado una nota mayor o igual a 5,
-pero menor a 7; Notable una nota mayor o igual a 7, pero menor a 9; y Excelente, una nota
-mayor o igual a 9
-*/
-
-/*5
-5. Dados un precio y un descuento, calcula el precio final. Por ejemplo, si el precio es 100 y el
-descuento es del 10%, entonces como precio final deberías obtener 90€
- */
-
-/*6
- 6. Clasifica triángulos: dada la medida de los 3 lados, tienes que determinar si se trata de un
-triángulo equilátero (todos los lados iguales), un triángulo isósceles (solo dos de los lados son
-iguales) o un triángulo escaleno (todos los lados son diferentes)
- */
-
-/*7,8,9
- 7. Dada una letra, determina si se trata de una vocal
-8. Dada una letra, determina si se trata de una consonante
-9. Combina los ejercicios 7 y 8 para determinar si una letra es una vocal o una consonante
- */
-
-/*10
- * Dada una fecha (día y mes), calcula cuántos días han pasado desde el inicio del año. No hace
-falta que tengas en cuenta si el año es bisiesto. Supón que trabajas sobre un año no bisiesto,
-que en total tiene 365 días
-Dado un año, determina si se trata de un año bisiesto. Un año bisiesto es aquel que es
-múltiplo de 4. Eso sí, si es múltiplo de 4 y múltiplo de 100, también tiene que ser múltiplo de
-400 para ser bisiesto:
-๏ El año 8 es bisiesto porque es múltiplo de 4 y no de 100
-๏ El año 200 no es bisiesto porque es múltiplo de 4 y de 100, pero no de 400
-๏ El año 800 es bisiesto porque es múltiplo de 4, de 100 y de 400
-12. Combina los ejercicios 10 y 11 para que ahora, dada una fecha (día, mes y año) determines
-cuántos días han pasado desde el inicio del año. En este ejercicio sí que debes tener en
-cuenta si se trata de un año bisiesto o no
-*/
 
 public class Dado : MonoBehaviour
 {
@@ -67,13 +22,45 @@ public class Dado : MonoBehaviour
     private int lado3;
     /*7,8,9*/
     private string letra;
-    /*10,11,12*/
-    [SerializeField] private int mes;
+    /*10,11,12, 14*/
     [SerializeField] private int dia;
-    [SerializeField] private int año;
+    [SerializeField] private int mes;
+    [SerializeField] private int año = 2023;
     private bool Bisiestificaneitor;
     private int diaspasados;
+    private int edad;
+    [SerializeField] private int diaNacimiento;
+    [SerializeField] private int mesNacimiento;
+    [SerializeField] private int añoNacimiento;
+    /*13*/
+    [SerializeField] private float alto;
+    [SerializeField] private float largo;
+    private float area;
+    /*15*/
+    [SerializeField] private float Nº1;
+    [SerializeField] private float Nº2;
+    [SerializeField] private string Operacion;
+    private float Resultado15;
+
+    /*16*/
+    private int[] Enteros;
+    /*26*/
+    private int One2Ten = 1;
+    /*27*/
+    private int countback = 15;
     // Start is called before the first frame update
+    /*28*/
+    [SerializeField] private int factorial;
+    private int factor;
+    private int resultadofactorial;
+    /*29*/
+    [SerializeField] private int TablaX;
+    private int diez = 10;
+    private int tabla;
+    /*30*/
+    [SerializeField] private int iteracion;
+    private int asteriscos;
+
     void Start()
     {
 
@@ -96,7 +83,7 @@ public class Dado : MonoBehaviour
 
             Debug.Log(comprobar);
         }
- 
+
         // Actividad 4
         {
             nota = 0;
@@ -118,7 +105,7 @@ public class Dado : MonoBehaviour
                 Debug.Log("Insuficiente");
             }
         }
-        
+
         // Actividad 5
         {
             precio = 100;
@@ -160,10 +147,11 @@ public class Dado : MonoBehaviour
                 Debug.Log("Vocal");
             }
         }
-        //Actividad 10,11,12
+
+        //Actividad 10,11,12 (Ha arreglar)
         {
             //Bisiestificaneitor
-            if (año %4 == 0 && año %100 == 0 && año %400 == 0 || año %4 == 0 && año %100 != 0)
+            if (año % 4 == 0 && año % 100 == 0 && año % 400 == 0 || año % 4 == 0 && año % 100 != 0)
             {
                 Bisiestificaneitor = true;
             }
@@ -184,44 +172,145 @@ public class Dado : MonoBehaviour
                 diaspasados--;
             }
 
-            // 31inador (no usar es una abominacion de la tecnologia)
+            // 31Inador (no usar es una abominacion de la programacion) (Unfinished)
             /*{
-                if (mes >= 12)
+                if (mes >= 12 && dia == 31)
                 {
                     diaspasados += 7;
                 }
-                if (mes >= 10 && mes <= 11)
+                else if (mes >= 10 && mes <= 11)
                 {
-                    diaspasados += 6;
+                    if (mes == 10 && dia == 31 || mes == 11)
+                    {
+                        diaspasados += 6;
+                    }
+                    else
+                    {
+                        diaspasados += 5;
+                    }
                 }
-                if (mes >= 8 && mes <= 9)
+                else if (mes >= 8 && mes <= 9)
                 {
                     diaspasados += 5;
                 }
-                if (mes == 7)
+                else if (mes == 7)
                 {
                     diaspasados += 4;
                 }
-                if (mes >= 5 && mes <= 6)
+                else if (mes >= 5 && mes <= 6)
                 {
                     diaspasados += 3;
                 }
-                if (mes >= 3 && mes <= 4)
+                else if (mes >= 3 && mes <= 4)
                 {
                     diaspasados += 2;
                 }
-                if (mes == 2)
+                else if (mes == 2)
                 {
                     diaspasados += 1;
                 }
-                if (mes == 1 && dia == 31)
+                else if (mes == 1 && dia == 31)
                 {
-                    diaspasados+= 1;
-                }*/
-            }
+                    diaspasados += 1;
+                }
+                else { diaspasados += 0; }
+
+
+            }*/
+
             Debug.Log(diaspasados);
         }
+
+        // Actividad 13
+        {
+            area = alto * largo;
+            Debug.Log(area);
+        }
+
+        // Actividad 14
+        {
+            edad = año - añoNacimiento - 1;
+            if (mesNacimiento >= mes)
+            {
+                if (mesNacimiento == mes)
+                {
+                    if (diaNacimiento >= dia)
+                    {
+                        edad += 1;
+                    }
+                }
+            }
+            Debug.Log(edad);
+        }
+
+        // Activdad 15
+        {
+            if (Operacion == "+" || Operacion == "addition")
+            {
+                Resultado15 = Nº1 + Nº2;
+            }
+            else if (Operacion == "-" || Operacion == "subtraction")
+            {
+                Resultado15 = Nº1 - Nº2;
+            }
+            else if (Operacion == "x" || Operacion == "*" || Operacion == "product")
+            {
+                Resultado15 = Nº1 * Nº2;
+            }
+            else if (Operacion == "/" || Operacion == "%" || Operacion == "division")
+            {
+                Resultado15 = Nº1 / Nº2;
+            }
+
+            Debug.Log (Resultado15);
+        }
+
+        // Actividad 16
+
+        // Actividad 26
+        {
+            while (One2Ten >= 10)
+            {
+                Debug.Log(One2Ten);
+                One2Ten++;
+            }
+        }
+        // Actividad 27
+        {
+            while (countback <= 15 && countback >= 0)
+            {
+                Debug.Log(countback);
+                countback--;
+            }
+        }
+        // Actividad 28
+        {
+            factor = factorial;
+            while (factor <= factorial && factor >= 1)
+            {
+                resultadofactorial += factorial * factor;
+                factor--;
+            }
+
+            Debug.Log(resultadofactorial);
+        }
+        // Actividad 29
+        {
+            while (diez >= 0)
+            {
+                tabla = diez * TablaX;
+                diez--;
+                Debug.Log(tabla);
+            }
+        }
+        // Actividad 30
+        {
+           //String
+        }
     }
-}
+    
+    
+    }
+
 
    
