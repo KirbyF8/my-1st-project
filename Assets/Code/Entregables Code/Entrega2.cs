@@ -46,6 +46,7 @@ public class Entrega2 : MonoBehaviour
         if (N1 >= N2)
         {
             comparador = true;
+            Debug.Log(comparador);
         }
         // Exercise 6 // This add "nombre" to Welcome
         Debug.Log("Welcome " + nombre );
