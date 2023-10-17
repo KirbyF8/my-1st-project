@@ -353,9 +353,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19c3e521f739da24dbf12b2b3fbfcdc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dia: 31
-  mes: 12
-  "a\xF1o": 2024
+  dia: 23
+  mes: 11
+  "a\xF1o": 2005
   diaNacimiento: 0
   mesNacimiento: 0
   "a\xF1oNacimiento": 0

@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using Unity.VisualScripting;
 using UnityEngine;
+
+
 
 public class Dado : MonoBehaviour
 {
@@ -307,10 +310,14 @@ public class Dado : MonoBehaviour
         {
            //String
         }
+
+
+
+
     }
+
     
-    
-    }
+}
 
 
    

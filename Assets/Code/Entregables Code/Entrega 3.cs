@@ -40,20 +40,30 @@ public class Entrega3 : MonoBehaviour
     [SerializeField]private float N1;
     [SerializeField]private float N2;
     private float mayor;
-    private int[] hola;
+   
     // Exercise 2
     [SerializeField] private string letra;
 
     // Exercise 3
     [SerializeField] private float IN1;
     [SerializeField] private float IN2;
+    
     // Exercise 4
     [SerializeField] private float nota;
-    // Exercise 5
+    
+    // Exercise 5, 6, 7
     [SerializeField] private int Dia;
     [SerializeField] private int Mes;
     [SerializeField] private int Año;
     private bool Bisiestificaneitor;
+    private string animal;
+
+    // Exercise 8
+    private int Centuria;
+    private int Decada;
+    private int Diadificador;
+    private int resto;
+    private int resto2;
 
     void Start()
     {
@@ -162,7 +172,249 @@ public class Entrega3 : MonoBehaviour
                 Debug.Log("Fecha Válida");
             }
         }
-    
+
+        // Exercise 6
+        {
+        if (Año % 12 == 0)
+        {
+            animal = "Monkey";
+        }
+        else if (Año%12 == 1)
+        {
+            animal = "Rooster";
+        }
+        else if (Año % 12 == 2)
+        {
+            animal = "Dog";
+        }
+        else if (Año%12 == 3)
+        {
+            animal = "Pig";
+        }
+        else if (Año % 12 == 4)
+        {
+            animal = "Rat";
+        }
+        else if (Año % 12 == 5)
+        {
+            animal = "Ox";
+        }
+        else if (Año % 12 == 6)
+        {
+            animal = "Tiger";
+        }
+        else if (Año % 12 == 7)
+        {
+            animal = "Rabbit";
+        }
+        else if (Año % 12 == 8)
+        {
+            animal = "Dragon";
+        }
+        else if (Año % 12 == 9)
+        {
+            animal = "Snake";
+        }
+        else if (Año % 12 == 10)
+        {
+            animal = "Horse";
+        }
+        else
+        {
+            animal = "Sheep";
+        }
+        Debug.Log(animal);
+        }
+
+        // Exercise 7
+        {
+            if (Mes == 3 && Dia >= 21 || Mes == 2 && Dia <= 19)
+            {
+                Debug.Log("Aries");
+            }
+            else if (Mes == 4 && Dia >= 20 || Mes == 5 && Dia <= 20)
+            {
+                Debug.Log("Tauro");
+            }
+            else if (Mes == 5 && Dia >= 21 || Mes == 6 && Dia <= 20)
+            {
+                Debug.Log("Géminis");
+            }
+            else if (Mes == 6 && Dia >= 21 || Mes == 7 && Dia <= 22)
+            {
+                Debug.Log("Cáncer");
+            }
+            else if (Mes == 7 && Dia >= 23 || Mes == 8 && Dia <= 22)
+            {
+                Debug.Log("Leo");
+            }
+            else if (Mes == 8 && Dia >= 23 || Mes == 9 && Dia <= 22)
+            {
+                Debug.Log("Virgo");
+            }
+            else if (Mes == 9 && Dia >= 23 || Mes == 10 && Dia <= 22)
+            {
+                Debug.Log("Libra");
+            }
+            else if (Mes == 10 && Dia >= 23 || Mes == 11 && Dia <= 21)
+            {
+                Debug.Log("Escorpio");
+            }
+            else if (Mes == 11 && Dia >= 22 || Mes == 12 && Dia <= 21)
+            {
+                Debug.Log("Sagitario");
+            }
+            else if (Mes == 12 && Dia >= 22 || Mes == 1 && Dia <= 19)
+            {
+                Debug.Log("Capricornio");
+            }
+            else if (Mes == 1 && Dia >= 20 || Mes == 2 && Dia <= 18)
+            {
+                Debug.Log("Acuario");
+            }
+            else if (Mes == 2 && Dia >= 19 || Mes == 8 && Dia <= 20)
+            {
+                Debug.Log("Leo");
+            }
+        }
+
+        // Exercise 8
+        {
+            Centuria = Año / 100;
+
+            if (Centuria == 19)
+            {
+                Diadificador++;
+            }
+            else if (Centuria == 18)
+            {
+                Diadificador += 3;
+            }
+
+            while (Año >= 1000)
+            {
+
+                Decada = Año - 1000;
+                Año -= 1000;
+            }
+            while (Decada >= 100)
+            {
+                Decada -= 100;
+            }
+
+            resto = Decada/2;
+            resto = resto / 2;
+            resto = resto%7;
+
+            resto = Decada + resto;
+            resto = resto % 7;
+            Diadificador += resto;
+            
+
+            
+
+            // Comprobador de Mes
+            { 
+                if (Mes == 1)
+                {
+                    if (Bisiestificaneitor == true)
+                    {
+                        Diadificador += 5;
+                    }
+                    else
+                    {
+                        Diadificador += 6;
+                    }
+                }
+                else if (Mes == 2)
+                {
+                    if (Bisiestificaneitor == true)
+                    {
+                        Diadificador += 1;
+                    }
+                    else
+                    {
+                        Diadificador += 2;
+                    }
+                }
+                else if (Mes == 3)
+                {
+                    Diadificador += 2;
+                }
+                else if (Mes == 4)
+                {
+                    Diadificador += 5;
+                }
+                else if (Mes == 5)
+                {
+                    Diadificador += 0;
+                }
+                else if (Mes == 6)
+                {
+                    Diadificador += 3;
+                }
+                else if (Mes == 7)
+                {
+                    Diadificador += 5;
+                }
+                else if (Mes == 8)
+                {
+                    Diadificador += 1;
+                }
+                else if (Mes == 9)
+                {
+                    Diadificador += 4;
+                }
+                else if (Mes == 10)
+                {
+                    Diadificador += 6;
+                }
+                else if (Mes == 11)
+                {
+                    Diadificador += 2;
+                }
+                else if (Mes == 12)
+                {
+                    Diadificador += 4;
+                }
+
+            }
+
+            Diadificador += Dia%7;
+
+            Diadificador = Diadificador%7;
+
+            if (Diadificador == 1)
+            {
+                Debug.Log("Lunes");
+            }
+            else if ( Diadificador == 2)
+            {
+                Debug.Log("Martes");
+            }
+            else if (Diadificador == 3)
+            {
+                Debug.Log("Miercoles");
+            }
+            else if (Diadificador == 4)
+            {
+                Debug.Log("Jueves");
+            }
+            else if (Diadificador == 5)
+            {
+                Debug.Log("Viernes");
+            }
+            else if (Diadificador == 6)
+            {
+                Debug.Log("Sabado");
+            }
+            else if (Diadificador == 0)
+            {
+                Debug.Log("Domingo");
+            }
+
+            // Hecho por Héctor Fernández y ya David Llabrés
+        }
     }
 
     // Update is called once per frame
