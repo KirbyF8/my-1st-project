@@ -65,6 +65,14 @@ public class Entrega3 : MonoBehaviour
     private int resto;
     private int resto2;
 
+    // Exercise 9
+    [SerializeField]private int age;
+    [SerializeField]private string rank;
+
+    // Exercise 10
+    [SerializeField]private float angle1;
+    [SerializeField]private float angle2;
+    [SerializeField]private float angle3;
     void Start()
     {
 
@@ -422,6 +430,63 @@ public class Entrega3 : MonoBehaviour
             }
 
             // Hecho por Héctor Fernández y David Llabrés
+
+        }
+
+        // Exercise 9
+        {
+            if (age >= 65)
+            {
+                if (rank == "gold")
+                {
+                    Debug.Log("75% of discount");
+                }
+                else if (rank == "silver")
+                {
+                    Debug.Log("50% of discount");
+                }
+                else if (rank == "bronze")
+                {
+                    Debug.Log("25% of discount");
+                }
+                else 
+                {
+                    Debug.Log("0% of discount");
+                }
+            }
+            else if (age >= 18 && age <= 64)
+            {
+                if (rank == "gold")
+                {
+                    Debug.Log("50% of discount");
+                }
+                else if (rank == "silver")
+                {
+                    Debug.Log("25% of discount");
+                }
+                else if (rank == "bronze")
+                {
+                    Debug.Log("10% of discount");
+                }
+                else 
+                {
+                    Debug.Log("0% of discount");
+                }
+            }
+            else
+            {
+                Debug.Log("You cannot be a member of the store and thereforedo not receive any discount");
+            }
+        }
+        // Exercise 10
+
+        if (angle1 + angle2 + angle3 == 180)
+        {
+            Debug.Log("It can be a triangle");
+        }
+        else 
+        {
+            Debug.Log("It can't be a triangle");
         }
     }
 
