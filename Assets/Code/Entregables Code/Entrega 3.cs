@@ -290,6 +290,14 @@ public class Entrega3 : MonoBehaviour
             {
                 Diadificador += 3;
             }
+            else if (Centuria == 17)
+            {
+                Diadificador += 4;
+            }
+            else if (Centuria == 15)
+            {
+                Diadificador += 2;
+            }
 
             while (Año >= 1000)
             {
@@ -413,7 +421,7 @@ public class Entrega3 : MonoBehaviour
                 Debug.Log("Domingo");
             }
 
-            // Hecho por Héctor Fernández y ya David Llabrés
+            // Hecho por Héctor Fernández y David Llabrés
         }
     }
 
